@@ -153,7 +153,7 @@ public class BitOperator {
      * The flip involves 3 operations:
      * <p>
      * <ul>
-     *     <li>inverse the bits of the integer using the ^ operator</li>
+     *     <li>inverse the bits of the integer using the ~ operator</li>
      *     <li>create a mask with same number of bits as the integer and set all bits to 1</li>
      *     <li>mask the bits from step 1 and 2 with the & operator <br/>
      *         <i>the masking is necessary to clear all the preceding bits
