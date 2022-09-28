@@ -8,9 +8,12 @@ public class BitOperatorTests {
 
     @Test
     public void test() {
-        int i = 7 << 1; // left-shift the bit pattern of 7 by 1 position
-        System.out.println(i);
-        System.out.println(Integer.toBinaryString(i));
+        int i = 32768;
+        short actual = Integer.valueOf(i).shortValue();
+
+        int expected = (i % 65536)>Short.MAX_VALUE? (i % 65536) - 65536 : (i % 65536);
+
+        assertEquals(expected, actual);
     }
 
     @Test
