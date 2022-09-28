@@ -18,9 +18,31 @@ package com.jeffrey.core.lang;
  * <p>
  * Demonstrating how 2's complement work for arithmetic operations in integer
  * <ul>
- *     <li>overflow (when addition results in a value larger than the max value can be held by the number of bits</li>
- *     <li>underflow (when subtraction results in a value smaller than the smallest value can be held by the number of bits</li>
+ *     <li>overflow (when addition results in a value larger than the max value can be held by the number of bits)</li>
+ *     <li>underflow (when subtraction results in a value smaller than the smallest value can be held by the number of bits)</li>
  * </ul>
+ * </p>
+ *
+ * <p>
+ * <b>Verification</b> <br/>
+ * Given an integer a, to work out the actual value when stored in a 4-bits integer b, the
+ * following psedo-code can be used: <br/>
+ * <pre>
+ * {@code
+ *     function convert(a) {
+ *         let tmp = a % 16;
+ *         if (tmp > 7) {
+ *             return (tmp - 16);
+ *         } else if (tmp < -8) {
+ *             return (tmp + 16);
+ *         } else {
+ *             return tmp;
+ *         }
+ *     }
+ *
+ *     b = convert(a);
+ * }
+ * </pre>
  * </p>
  *
  * This class is immutable so it can be shared.
@@ -126,16 +148,19 @@ public class FourBitsInteger {
     }
 
     /**
-     * Adding an integer to the 4-bits integer to produce a new 4-bits integer.
+     * Adding an integer to the 4-bits integer and produce a new 4-bits integer which
+     * holds the result value.
      *
+     * <p>
      * If the result exceed the maximum value can be held, an overflow happens and
-     * the operation go cyclic which continue from the minimum value.
-     * 6 + 3 = 9 which is larger than the max value 7 by 2, the cyclic operation
-     * continues and that includes -8 and -7, therefore 6 + 3 = -7 for a 4-bits
-     * integer.
+     * the operation go cyclic towards the direction of the minimum value.
+     * Since 6 + 3 = 9 is larger than the max value (7) by 2, the cyclic operation
+     * then goes beyond the max value (7) and resume at the min value (-8), which
+     * includes -8 and -7, resulting 6 + 3 = -7 for a 4-bits integer.
+     * </p>
      *
      * @param i the integer to add
-     * @return
+     * @return a new 4-bits integer holding the result value
      */
     public FourBitsInteger add(int i) {
         if (this._i + i > MAX_VALUE) {
@@ -147,6 +172,21 @@ public class FourBitsInteger {
         }
     }
 
+    /**
+     * Subtracting an integer from the 4-bits integer and produce a new 4-bits integer
+     * which holds the result value.
+     *
+     * <p>
+     * If the result recede the minimum value can be held, an underflow happens and
+     * the operation go cyclic towards the direction of the maximum value.
+     * Since 2 - 12 = -10 is smaller than the min value (-8) by 2, the cyclic operation
+     * then goes beyond the min value (-8) and resume at the max value (7), which
+     * includes 7 and 6, resulting 2 - 12 = 6 for a 4-bits integer.
+     * </p>
+     *
+     * @param i the integer to add
+     * @return a new 4-bits integer holding the result value
+     */
     public FourBitsInteger minus(int i) {
         if (this._i - i < MIN_VALUE) {
             return new FourBitsInteger(MAX_VALUE - (MIN_VALUE - (this._i - i) - 1));

@@ -6,58 +6,71 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class FourBitsIntegerTests {
 
+    private int convert(int input) {
+        int size = Double.valueOf(Math.pow(2,4)).intValue();
+        int max = Double.valueOf(Math.pow(2,3)).intValue() - 1;
+        int min = -Double.valueOf(Math.pow(2,3)).intValue();
+        if (input % size > max) {
+            return (input % size) - size;
+        } else if (input % size < min) {
+            return (input % size) + size;
+        } else {
+            return input % size;
+        }
+    }
+
     @Test
     public void getMaxValue() {
         FourBitsInteger max = new FourBitsInteger(FourBitsInteger.MAX_VALUE);
-        assertEquals(7, max.intValue());
+        assertEquals(convert(max.intValue()), max.intValue());
     }
 
     @Test
     public void getMinValue() {
         FourBitsInteger min = new FourBitsInteger(FourBitsInteger.MIN_VALUE);
-        assertEquals(-8, min.intValue());
+        assertEquals(convert(min.intValue()), min.intValue());
     }
 
     @Test
     public void overflow_001() {
         FourBitsInteger a = new FourBitsInteger(8);
-        assertEquals(-8, a.intValue());
+        assertEquals(convert(a.intValue()), a.intValue());
     }
 
     @Test
     public void overflow_002() {
         FourBitsInteger a = new FourBitsInteger(15);
-        assertEquals(-1, a.intValue());
+        assertEquals(convert(a.intValue()), a.intValue());
     }
 
     @Test
     public void overflow_003() {
         FourBitsInteger a = new FourBitsInteger(23);
-        assertEquals(7, a.intValue());
+        assertEquals(convert(a.intValue()), a.intValue());
     }
 
     @Test
     public void overflow_004() {
         FourBitsInteger a = new FourBitsInteger(32);
-        assertEquals(0, a.intValue());
+        assertEquals(convert(a.intValue()), a.intValue());
     }
 
     @Test
     public void underflow_001() {
         FourBitsInteger a = new FourBitsInteger(-9);
-        assertEquals(7, a.intValue());
+        assertEquals(convert(a.intValue()), a.intValue());
     }
 
     @Test
     public void underflow_002() {
         FourBitsInteger a = new FourBitsInteger(-16);
-        assertEquals(0, a.intValue());
+        assertEquals(convert(a.intValue()), a.intValue());
     }
 
     @Test
     public void underflow_003() {
         FourBitsInteger a = new FourBitsInteger(-23);
-        assertEquals(-7, a.intValue());
+        assertEquals(convert(a.intValue()), a.intValue());
     }
 
     /**
@@ -66,7 +79,7 @@ public class FourBitsIntegerTests {
     @Test
     public void add_001() {
         FourBitsInteger a = new FourBitsInteger(2);
-        assertEquals(5, a.add(3).intValue());
+        assertEquals(convert(a.intValue() + 3), a.add(3).intValue());
     }
 
     /**
@@ -75,7 +88,7 @@ public class FourBitsIntegerTests {
     @Test
     public void add_002() {
         FourBitsInteger a = new FourBitsInteger(5);
-        assertEquals(FourBitsInteger.MIN_VALUE, a.add(3).intValue());
+        assertEquals(convert(a.intValue() + 3), a.add(3).intValue());
     }
 
     /**
@@ -84,7 +97,7 @@ public class FourBitsIntegerTests {
     @Test
     public void add_003() {
         FourBitsInteger a = new FourBitsInteger(7);
-        assertEquals(1, a.add(10).intValue());
+        assertEquals(convert(a.intValue() + 10), a.add(10).intValue());
     }
 
     /**
@@ -93,7 +106,7 @@ public class FourBitsIntegerTests {
     @Test
     public void add_004() {
         FourBitsInteger a = new FourBitsInteger(6);
-        assertEquals(-6, a.add(20).intValue());
+        assertEquals(convert(a.intValue() + 20), a.add(20).intValue());
     }
 
     /**
@@ -102,7 +115,7 @@ public class FourBitsIntegerTests {
     @Test
     public void add_005() {
         FourBitsInteger a = new FourBitsInteger(6);
-        assertEquals(-7, a.add(3).intValue());
+        assertEquals(convert(a.intValue() + 3), a.add(3).intValue());
     }
 
     /**
@@ -111,7 +124,7 @@ public class FourBitsIntegerTests {
     @Test
     public void minus_001() {
         FourBitsInteger a = new FourBitsInteger(7);
-        assertEquals(4, a.minus(3).intValue());
+        assertEquals(convert(a.intValue() - 3), a.minus(3).intValue());
     }
 
     /**
@@ -120,7 +133,7 @@ public class FourBitsIntegerTests {
     @Test
     public void minus_002() {
         FourBitsInteger a = new FourBitsInteger(3);
-        assertEquals(-3, a.minus(6).intValue());
+        assertEquals(convert(a.intValue() - 6), a.minus(6).intValue());
     }
 
     /**
@@ -129,7 +142,7 @@ public class FourBitsIntegerTests {
     @Test
     public void minus_003() {
         FourBitsInteger a = new FourBitsInteger(0);
-        assertEquals(5, a.minus(11).intValue());
+        assertEquals(convert(a.intValue() - 11), a.minus(11).intValue());
     }
 
     /**
@@ -138,7 +151,7 @@ public class FourBitsIntegerTests {
     @Test
     public void minus_004() {
         FourBitsInteger a = new FourBitsInteger(3);
-        assertEquals(-7, a.minus(-6).intValue());
+        assertEquals(convert(a.intValue() - -6), a.minus(-6).intValue());
     }
 
 }
