@@ -16,7 +16,8 @@ package com.jeffrey.core.lang;
  * </p>
  *
  * <p>
- * Demonstrating how 2's complement work for arithmetic operations in integer
+ * Demonstrating how 2's complement work for arithmetic operations in signed integer
+ * with limited number of bits.
  * <ul>
  *     <li>overflow (when addition results in a value larger than the max value can be held by the number of bits)</li>
  *     <li>underflow (when subtraction results in a value smaller than the smallest value can be held by the number of bits)</li>
