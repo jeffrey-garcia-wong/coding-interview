@@ -129,14 +129,14 @@ public class FourBitsInteger {
      * @param i the primitive integer value to initialize
      */
     public FourBitsInteger(int i) {
-        if (i > NUM_OF_VALUES || i < -NUM_OF_VALUES) i = i % NUM_OF_VALUES;
-
-        if (i > MAX_VALUE) { // handle overflow within the range of first cycle
-            this._i = MIN_VALUE + (i - MAX_VALUE - 1);
-        } else if (i < MIN_VALUE) { // handle underflow within the range of first cycle
-            this._i = MAX_VALUE - (MIN_VALUE - i - 1);
+        if (i % NUM_OF_VALUES > MAX_VALUE) {
+            // handle overflow
+            this._i = (i % NUM_OF_VALUES) - NUM_OF_VALUES;
+        } else if (i % NUM_OF_VALUES < MIN_VALUE) {
+            // handle underflow
+            this._i = (i % NUM_OF_VALUES) + NUM_OF_VALUES;
         } else {
-            this._i = i;
+            this._i = i % NUM_OF_VALUES;
         }
     }
 
