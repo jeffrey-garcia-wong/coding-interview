@@ -1,12 +1,9 @@
 package com.jeffrey.core.lang;
 
-import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.TestMethodOrder;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-@TestMethodOrder(MethodOrderer.MethodName.class)
 public class BitOperatorTests {
 
     @Test
@@ -17,7 +14,7 @@ public class BitOperatorTests {
     }
 
     @Test
-    public void flipBits() {
+    public void flipBits_001() {
         int a = 6; // 110 in binary, after flip should expect 001 = 1
         assertEquals(1, BitOperator.flipBits(a));
     }
