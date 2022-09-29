@@ -1,5 +1,6 @@
-package com.jeffrey.facebook;
+package com.jeffrey.hackkerank;
 
+import com.jeffrey.hackkerank.AVeryBigSum;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -8,14 +9,6 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class AVeryBigSumTests {
-
-    @Test
-    public void test() {
-        int a = Integer.MAX_VALUE;
-        int b = Integer.MAX_VALUE;
-        int c = a + b;
-        System.out.println(c);
-    }
 
     @Test
     public void test001() {

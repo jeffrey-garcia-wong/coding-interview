@@ -1,13 +1,19 @@
-package com.jeffrey.facebook;
+package com.jeffrey.hackkerank;
 
 import java.util.List;
 
-public class AVeryBigSum {
+class AVeryBigSum {
 
-    public static Long execute(List<Long> ar) {
+    static Long execute(List<Long> ar) {
         return solutionV1(ar);
     }
 
+    /**
+     * Complete the 'aVeryBigSum' function below.
+     *
+     * The function is expected to return a LONG_INTEGER.
+     * The function accepts LONG_INTEGER_ARRAY ar as parameter.
+     */
     private static Long solutionV1(List<Long> ar) {
         Long total = 0L;
         for (int i=0;i<ar.size(); i++) {
