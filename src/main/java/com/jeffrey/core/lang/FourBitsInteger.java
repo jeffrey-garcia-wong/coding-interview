@@ -64,7 +64,7 @@ public class FourBitsInteger {
 
     /**
      * Number of values can be stored by a 4-bits signed integer
-     *
+     * <pre>
      * binary | decimal
      * ------ | -------
      * 0000   | 0
@@ -83,7 +83,7 @@ public class FourBitsInteger {
      * 1101   | -3 (using 2's complements, binary value of 3 is 0011, inverse it to 1100, then add 1 so it becomes 1101)
      * 1110   | -2 (using 2's complements, binary value of 2 is 0010, inverse it to 1101, then add 1 so it becomes 1110)
      * 1111   | -1 (using 2's complements, binary value of 1 is 0001, inverse it to 1110, then add 1 so it becomes 1111)
-     *
+     * </pre>
      * Total number of values can be stored by a 4-bits signed integer = 2^4 = 16 (including zero)
      */
     private static final int NUM_OF_VALUES = Double.valueOf(Math.pow(2, NUM_OF_BITS)).intValue();
@@ -91,7 +91,7 @@ public class FourBitsInteger {
     /**
      * For a 4-bits signed integer, the largest positive value can be hold is 0111 (instead of 1111) since
      * the left-most bit is reserved as sign bit, as illustrated below:
-     *
+     * <pre>
      * binary | decimal
      * ------ | -------
      * 0000   | 0
@@ -102,14 +102,14 @@ public class FourBitsInteger {
      * 0101   | 5
      * 0110   | 6
      * 0111   | 7
-     *
+     * </pre>
      * Converting 0111 (binary) to decimal is 7, which is equivalent to (2^(4-1) - 1).
      */
     public static final int MAX_VALUE = Double.valueOf(Math.pow(2, VALUE_BITS)).intValue() - 1;
     /**
      * For a 4-bits signed integer, the largest negative value can be hold is 1111 (-1) and the smallest
      * negative value can be achieved by reducing 1, as illustrated below:
-     *
+     * <pre>
      * binary | decimal
      * ------ | -------
      * 1111   | -1
@@ -120,7 +120,7 @@ public class FourBitsInteger {
      * 1010   | -6
      * 1001   | -7
      * 1000   | -8
-     *
+     * </pre>
      * The minimum value is -8, which is equivalent to -2^(4-1).
      */
     public static final int MIN_VALUE = Double.valueOf(Math.pow(-2, VALUE_BITS)).intValue();
