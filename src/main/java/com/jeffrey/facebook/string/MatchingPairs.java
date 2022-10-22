@@ -1,4 +1,4 @@
-package com.jeffrey.facebook;
+package com.jeffrey.facebook.string;
 
 import java.util.ArrayList;
 import java.util.Arrays;

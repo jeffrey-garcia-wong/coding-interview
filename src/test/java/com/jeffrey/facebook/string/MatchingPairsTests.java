@@ -1,4 +1,4 @@
-package com.jeffrey.facebook;
+package com.jeffrey.facebook.string;
 
 import org.junit.jupiter.api.Test;
 
