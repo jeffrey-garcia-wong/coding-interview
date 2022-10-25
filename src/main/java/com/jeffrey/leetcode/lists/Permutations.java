@@ -115,6 +115,11 @@ class Permutations {
             return;
         }
         for (int i=0; i<input.length; i++) {
+            /* This shrinking of the sub-array is most important
+             * because it applies an even tighter boundary to
+             * reduce the search space for each level down
+             * in the recursive calls
+             */
             int[] subarray = new int[input.length-1];
             for (int j=0; j<subarray.length; j++) {
                 int pos = ((i+1)+j) % input.length;
