@@ -1,4 +1,4 @@
-package com.jeffrey.leetcode.lists;
+package com.jeffrey.leetcode.recursion;
 
 import org.junit.jupiter.api.Test;
 
