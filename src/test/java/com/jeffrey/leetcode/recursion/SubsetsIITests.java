@@ -8,7 +8,7 @@ import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.fail;
 
-class SubsetsTests {
+public class SubsetsIITests {
 
     private void check(List<List<Integer>> powersets, Set<String> resultSet) {
         if (powersets.size() != resultSet.size())
@@ -25,33 +25,8 @@ class SubsetsTests {
         if (resultSet.size() > 0) fail("incomplete power sets");
     }
 
-
     @Test
     public void test_001() {
-        int[] input = {1};
-        Set<String> resultSet = new HashSet<>();
-        resultSet.add("[1]");
-        resultSet.add("[]");
-
-        List<List<Integer>> powerSets = Subsets.execute(input);
-        check(powerSets, resultSet);
-    }
-
-    @Test
-    public void test_002() {
-        int[] input = {1,2};
-        Set<String> resultSet = new HashSet<>();
-        resultSet.add("[1, 2]");
-        resultSet.add("[1]");
-        resultSet.add("[2]");
-        resultSet.add("[]");
-
-        List<List<Integer>> powerSets = Subsets.execute(input);
-        check(powerSets, resultSet);
-    }
-
-    @Test
-    public void test_003() {
         int[] input = {1,2,3};
         Set<String> resultSet = new HashSet<>();
         resultSet.add("[1, 2, 3]");
@@ -63,7 +38,22 @@ class SubsetsTests {
         resultSet.add("[3]");
         resultSet.add("[]");
 
-        List<List<Integer>> powerSets = Subsets.execute(input);
+        List<List<Integer>> powerSets = SubsetsII.execute(input);
+        check(powerSets, resultSet);
+    }
+
+    @Test
+    public void test_002() {
+        int[] input = {1,2,2};
+        Set<String> resultSet = new HashSet<>();
+        resultSet.add("[1, 2, 2]");
+        resultSet.add("[1, 2]");
+        resultSet.add("[1]");
+        resultSet.add("[2, 2]");
+        resultSet.add("[2]");
+        resultSet.add("[]");
+
+        List<List<Integer>> powerSets = SubsetsII.execute(input);
         check(powerSets, resultSet);
     }
 

@@ -1,4 +1,4 @@
-package com.jeffrey.hackkerank.linkedlists;
+package com.jeffrey.hackkerank.lists;
 
 import org.junit.jupiter.api.Test;
 
