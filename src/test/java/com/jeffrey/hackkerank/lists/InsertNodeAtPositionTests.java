@@ -1,6 +1,5 @@
-package com.jeffrey.hackkerank.linkedlists;
+package com.jeffrey.hackkerank.lists;
 
-import com.jeffrey.hackkerank.linkedlists.InsertNodeAtPosition;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
