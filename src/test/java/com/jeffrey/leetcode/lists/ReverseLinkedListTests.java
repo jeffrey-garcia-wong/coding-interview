@@ -2,68 +2,71 @@ package com.jeffrey.leetcode.lists;
 
 import org.junit.jupiter.api.Test;
 
-import java.util.Set;
-import java.util.TreeSet;
+import static com.jeffrey.leetcode.lists.ReverseLinkedList.ListNode;
 
 import static org.junit.jupiter.api.Assertions.fail;
 
 public class ReverseLinkedListTests {
 
-    private void check(ReverseLinkedList.ListNode resultHead, ReverseLinkedList.ListNode reversedHead) {
-        if (resultHead==null && reversedHead==null) return;
+    private void check(ListNode expectedHead, ListNode actualHead) {
+        if (expectedHead==null && actualHead==null) return;
 
-        ReverseLinkedList.ListNode resultNode;
-        ReverseLinkedList.ListNode reversedNode;
+        ListNode expectedNode;
+        ListNode actualNode;
 
-        resultNode = resultHead;
-        reversedNode = reversedHead;
-        while (resultNode.next!=null && reversedHead.next!=null) {
-            if (resultNode.val != reversedNode.val)
+        expectedNode = expectedHead;
+        actualNode = actualHead;
+        while (expectedNode.next!=null && actualHead.next!=null) {
+            if (expectedNode.val != actualNode.val)
                 fail("node value un-matched");
-            resultNode = resultNode.next;
-            reversedNode = reversedNode.next;
+            expectedNode = expectedNode.next;
+            actualNode = actualNode.next;
         }
 
-        if (resultNode.next!=null || reversedNode.next!=null)
+        if (expectedNode.next!=null || actualNode.next!=null)
             fail("reversed list un-match");
     }
 
     @Test
     public void test_001() {
-        check(null, ReverseLinkedList.execute(null));
+        ListNode expectedHead = null;
+        ListNode head = null;
+        check(expectedHead, ReverseLinkedList.execute(head));
     }
 
     @Test
     public void test_002() {
-        ReverseLinkedList.ListNode resultHead = new ReverseLinkedList.ListNode(1);
-        ReverseLinkedList.ListNode head = new ReverseLinkedList.ListNode(1);
-        check(resultHead, ReverseLinkedList.execute(head));
+        ListNode expectedHead = new ListNode(1);
+        ListNode head = new ListNode(1);
+        check(expectedHead, ReverseLinkedList.execute(head));
     }
 
     @Test
     public void test_003() {
-        ReverseLinkedList.ListNode resultHead = new ReverseLinkedList.ListNode(2);
-        resultHead.next = new ReverseLinkedList.ListNode(1);
-        ReverseLinkedList.ListNode head = new ReverseLinkedList.ListNode(1);
-        head.next = new ReverseLinkedList.ListNode(2);
-        check(resultHead, ReverseLinkedList.execute(head));
+        ListNode expectedHead = new ListNode(2);
+        expectedHead.next = new ListNode(1);
+
+        ListNode head = new ListNode(1);
+        head.next = new ListNode(2);
+
+        check(expectedHead, ReverseLinkedList.execute(head));
     }
 
     @Test
     public void test_004() {
-        ReverseLinkedList.ListNode resultHead = new ReverseLinkedList.ListNode(5);
-        resultHead.next = new ReverseLinkedList.ListNode(4);
-        resultHead.next.next = new ReverseLinkedList.ListNode(3);
-        resultHead.next.next.next = new ReverseLinkedList.ListNode(2);
-        resultHead.next.next.next.next = new ReverseLinkedList.ListNode(1);
+        ListNode expectedHead = new ListNode(5);
+        expectedHead.next = new ListNode(4);
+        expectedHead.next.next = new ListNode(3);
+        expectedHead.next.next.next = new ListNode(2);
+        expectedHead.next.next.next.next = new ListNode(1);
 
-        ReverseLinkedList.ListNode head = new ReverseLinkedList.ListNode(1);
-        head.next = new ReverseLinkedList.ListNode(2);
-        head.next.next = new ReverseLinkedList.ListNode(3);
-        head.next.next.next = new ReverseLinkedList.ListNode(4);
-        head.next.next.next.next = new ReverseLinkedList.ListNode(5);
+        ListNode head = new ListNode(1);
+        head.next = new ListNode(2);
+        head.next.next = new ListNode(3);
+        head.next.next.next = new ListNode(4);
+        head.next.next.next.next = new ListNode(5);
 
-        check(resultHead, ReverseLinkedList.execute(head));
+        check(expectedHead, ReverseLinkedList.execute(head));
     }
 
 }
