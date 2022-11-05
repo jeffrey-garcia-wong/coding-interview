@@ -78,7 +78,10 @@ class LargestTripleProducts {
          * In this way the space complexity is kept as O(1) since the
          * heap would only store at most 3 items in any time, while
          * we iterate the through the array and re-compute product
-         * with the current item only, the time complexity is O(N).
+         * with the current item only, and each iteration involves
+         * peek, poll, offer operations which cost 3Log(N) time
+         * complexity, the total time cost is N * 3 Log(N), ignoring
+         * the constant term the overall time complexity is O(N Log(N)).
          */
 
         // Write the code here
