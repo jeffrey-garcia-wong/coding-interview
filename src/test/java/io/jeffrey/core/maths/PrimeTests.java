@@ -6,9 +6,10 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import static io.jeffrey.core.maths.Prime.execute;
 import static org.junit.jupiter.api.Assertions.fail;
 
-public class PrimeNumbersTests {
+public class PrimeTests {
 
     private void check(Set<Integer> resultSet, List<Integer> primes) {
         if (resultSet.size() != primes.size())
@@ -29,7 +30,7 @@ public class PrimeNumbersTests {
     @Test
     public void test_001() {
         Set<Integer> resultSet = new HashSet<>();
-        List<Integer> primes = PrimeNumbers.execute(1);
+        List<Integer> primes = execute(1);
         check(resultSet, primes);
     }
 
@@ -41,7 +42,7 @@ public class PrimeNumbersTests {
         resultSet.add(5);
         resultSet.add(7);
         resultSet.add(11);
-        List<Integer> primes = PrimeNumbers.execute(11);
+        List<Integer> primes = execute(11);
         check(resultSet, primes);
     }
 
@@ -54,7 +55,7 @@ public class PrimeNumbersTests {
         resultSet.add(7);
         resultSet.add(11);
         resultSet.add(13);
-        List<Integer> primes = PrimeNumbers.execute(15);
+        List<Integer> primes = execute(15);
         check(resultSet, primes);
     }
 
