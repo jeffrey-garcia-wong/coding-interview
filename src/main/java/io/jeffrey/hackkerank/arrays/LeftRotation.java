@@ -1,4 +1,4 @@
-package io.jeffrey.hackkerank;
+package io.jeffrey.hackkerank.arrays;
 
 import java.util.ArrayList;
 import java.util.List;
