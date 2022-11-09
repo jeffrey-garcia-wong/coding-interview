@@ -1,4 +1,4 @@
-package io.jeffrey.hackkerank;
+package io.jeffrey.hackkerank.java;
 
 import java.util.Arrays;
 import java.util.Comparator;

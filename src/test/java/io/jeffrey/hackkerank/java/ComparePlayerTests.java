@@ -1,4 +1,4 @@
-package io.jeffrey.hackkerank;
+package io.jeffrey.hackkerank.java;
 
 import org.junit.jupiter.api.Test;
 
