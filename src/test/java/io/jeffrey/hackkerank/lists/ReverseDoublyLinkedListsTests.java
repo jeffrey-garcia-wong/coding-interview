@@ -28,11 +28,6 @@ public class ReverseDoublyLinkedListsTests {
         }
     }
 
-    @Test
-    public void test_001() {
-        assertEquals(null, execute(null));
-    }
-
     private DoublyLinkedListNode generateList(int length) {
         DoublyLinkedListNode headNode = null;
         DoublyLinkedListNode prevNode = null;
@@ -45,6 +40,11 @@ public class ReverseDoublyLinkedListsTests {
             prevNode = node;
         }
         return headNode;
+    }
+
+    @Test
+    public void test_001() {
+        assertEquals(null, execute(null));
     }
 
     @Test
