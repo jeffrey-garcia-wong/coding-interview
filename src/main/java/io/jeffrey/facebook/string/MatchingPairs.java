@@ -120,7 +120,7 @@ class MatchingPairs {
 
         int maxMatchesAfterSwap = 0;
         if (matchesFromSubArray>0) {
-            maxMatchesAfterSwap = matchesBeforeSwap + 2;
+            maxMatchesAfterSwap = matchesBeforeSwap + matchesFromSubArray;
         } else {
             maxMatchesAfterSwap = matchesBeforeSwap - 2;
         }
