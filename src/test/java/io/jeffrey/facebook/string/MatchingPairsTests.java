@@ -62,4 +62,11 @@ public class MatchingPairsTests {
         assertEquals(2, MatchingPairs.execute(s, t));
     }
 
+    @Test
+    public void test_009() {
+        String s = "aefd";
+        String t = "ahed";
+        assertEquals(3, MatchingPairs.execute(s, t));
+    }
+
 }
