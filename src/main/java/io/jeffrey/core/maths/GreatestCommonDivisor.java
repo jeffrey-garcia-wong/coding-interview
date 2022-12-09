@@ -19,9 +19,9 @@ package io.jeffrey.core.maths;
  * }
  * </pre>
  */
-class GreatestCommonDivisior {
+public class GreatestCommonDivisor {
 
-    static int execute(int a, int b) {
+    public static int execute(int a, int b) {
         return solutionV1(a, b);
     }
 
