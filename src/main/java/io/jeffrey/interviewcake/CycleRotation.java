@@ -77,16 +77,61 @@ class CycleRotation {
     }
 
     static int[] solutionV2(int[] A, int K) {
-        // Design the algorithm here
         /*
-         * An optimised version of v1 to swap
-         * elements in place without introducing
-         * a new array.
-         *
+         * An optimised version of v1 to swap elements in-place without
+         * introducing a new array.
          *
          * Space complexity = O(1)
          * Time complexity = O(N)
+         *
+         * The idea is start shifting element at position 0 to its target
+         * position, while the element in the original position is then
+         * popped (saved) as well with its index in the array.
+         *
+         * Now instead of iterating all the elements sequentially in the
+         * array, the algorithm continues to compute the target position
+         * of the popped element (based on its index). Then repeat the
+         * process to pop that element in the target position before
+         * shifting the current element into there. Eventually after doing
+         * this for every element in the array, the shifting operation is
+         * fully completed and the process terminates.
+         *
+         * The trickiest part is to deal with scenario where the number of
+         * moves is a factor of the array's length, for example: if each
+         * element is to be shifted by 2 positions while the length of the
+         * array is 6. It's easy to see that after making the 3rd shift of
+         * elements (0->2, 2->4, 4->0) the target position cycled back to
+         * 0 which is where we started and the original element there was
+         * indeed shifted to position 2 (but its value remains in that
+         * position in the array), so the algorithm should stop when the
+         * target position cycle back to where it initially started (avoid
+         * re-shifting the original elements in index 0). But the shifting
+         * operation is not fully completed because there are 3 elements
+         * remains to be shifted at position (1, 3, 5). So instead of
+         * terminating the process, the algorithm moves the start position
+         * from 0 to 1 and begin popping off the elements from there (with
+         * its index saved), compute the target position and repeat the
+         * same popping mechanism until eventually the target position
+         * cycles back to where it started (position 1). The 4th, 5th and
+         * 6th shift operation involved are (1->3, 3->5, 5->1).
+         *
+         * The algorithm should repeat the process itself until all the
+         * elements are swapped, and this is easily achieved by keeping a
+         * counter which increments whenever an element is shifted.
+         *
+         * We need to access every element in the array with its index
+         * position, which is an O(1) operation, but we have to do this
+         * for all the elements in the array so the overall time complexity
+         * is O(N). But the upside is this algorithm does not incur extra
+         * consumption of memory for a separate array and thus keeps the
+         * space complexity in O(1).
+         *
+         * This algorithm primarily works for right rotation, but since
+         * left rotation is simply going right by (N - K) positions, the
+         * algorithm can be easily tweaked to produce the result of left
+         * rotation.
          */
+        // Design the algorithm here
 
         // write your code here
         if (A.length < 2) return A;
