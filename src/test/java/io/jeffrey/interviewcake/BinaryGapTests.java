@@ -31,4 +31,5 @@ public class BinaryGapTests {
     public void test_005() {
         assertEquals(2, execute(328));
     }
+
 }
