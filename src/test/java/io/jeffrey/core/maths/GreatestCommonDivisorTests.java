@@ -2,10 +2,10 @@ package io.jeffrey.core.maths;
 
 import org.junit.jupiter.api.Test;
 
-import static io.jeffrey.core.maths.GreatestCommonDivisior.execute;
+import static io.jeffrey.core.maths.GreatestCommonDivisor.execute;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class GreatestCommonDivisiorTests {
+public class GreatestCommonDivisorTests {
 
     @Test
     public void test1() {
@@ -51,7 +51,7 @@ public class GreatestCommonDivisiorTests {
 
     @Test
     public void test7() {
-        int a = 4;
+        int a = 10;
         int b = 6;
         assertEquals(2, execute(a,b));
     }

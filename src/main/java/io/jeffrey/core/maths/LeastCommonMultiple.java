@@ -45,6 +45,6 @@ class LeastCommonMultiple {
         // Write the code here
         if (a==0 || b==0) return 0;
         long ab = (long) a * (long) b;
-        return ab / GreatestCommonDivisior.execute(a,b);
+        return ab / GreatestCommonDivisor.execute(a,b);
     }
 }
