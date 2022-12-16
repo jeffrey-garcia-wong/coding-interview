@@ -1,33 +1,28 @@
 package io.jeffrey.core.lang;
 
 /**
- * Represents a 4-bits only signed integer.
+ * <h1>Represents a 4-bits only signed integer.</h1>
  *
- * <p>
  * The {@code FourBitsInteger} class wraps a value of the primitive type
  * {@code int} in an object. An object of type {@code FourBitsInteger}
  * contains a single field whose type is {@code int}.
- * </p>
+ * <p/>
  *
- * <p>
  * In addition, this class is immutable therefore once the object is created,
  * its interval value cannot be modified and all the provided API will return
  * a new object with the the latest value.
- * </p>
+ * <p/>
  *
- * <p>
  * Demonstrating how 2's complement work for arithmetic operations in signed integer
  * with limited number of bits.
  * <ul>
  *     <li>overflow (when addition results in a value larger than the max value can be held by the number of bits)</li>
  *     <li>underflow (when subtraction results in a value smaller than the smallest value can be held by the number of bits)</li>
  * </ul>
- * </p>
  *
- * <p>
  * <b>Verification</b> <br/>
  * Given an integer a, to work out the actual value when stored in a 4-bits integer b, the
- * following psedo-code can be used: <br/>
+ * following psedo-code can be used:
  * <pre>
  * {@code
  *     function convert(a) {
@@ -44,9 +39,8 @@ package io.jeffrey.core.lang;
  *     b = convert(a);
  * }
  * </pre>
- * </p>
  *
- * This class is immutable so it can be shared.
+ * This class is immutable so it can be shared.<p/>
  */
 public class FourBitsInteger {
     /**

@@ -1,8 +1,8 @@
 package io.jeffrey.core.sortings;
 
-class Quicksort {
+public class Quicksort {
 
-    static void execute(int [] input) {
+    public static void execute(int [] input) {
         solutionV1(input, 0, input.length-1);
     }
 

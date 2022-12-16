@@ -18,9 +18,9 @@ import java.util.List;
  * }
  * </pre>
  */
-class Factors {
+public class Factors {
 
-    static List<Integer> execute(int n) {
+    public static List<Integer> execute(int n) {
         return solutionV1(n);
     }
 

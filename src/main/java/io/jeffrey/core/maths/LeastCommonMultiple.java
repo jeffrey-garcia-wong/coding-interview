@@ -27,9 +27,9 @@ package io.jeffrey.core.maths;
  * }
  * </pre>
  */
-class LeastCommonMultiple {
+public class LeastCommonMultiple {
 
-    static long execute(int a, int b) {
+    public static long execute(int a, int b) {
         return solutionV1(a, b);
     }
 

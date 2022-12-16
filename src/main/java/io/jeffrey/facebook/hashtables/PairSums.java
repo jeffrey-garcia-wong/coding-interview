@@ -57,7 +57,7 @@ import java.util.Map;
  */
 class PairSums {
 
-    public static int execute(int[] arr, int k) {
+    static int execute(int[] arr, int k) {
         return solutionV1(arr, k);
     }
 

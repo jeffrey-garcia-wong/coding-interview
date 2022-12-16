@@ -1,4 +1,4 @@
-package io.jeffrey.interviewcake;
+package io.jeffrey.interviewcake.arrays;
 
 import io.jeffrey.core.maths.GreatestCommonDivisor;
 

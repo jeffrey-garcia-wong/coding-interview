@@ -1,4 +1,4 @@
-package io.jeffrey.interviewcake;
+package io.jeffrey.interviewcake.string;
 
 import org.junit.jupiter.api.Test;
 

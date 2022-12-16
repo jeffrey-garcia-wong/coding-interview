@@ -36,7 +36,7 @@ import java.util.Arrays;
  */
 class ReverseMakesEqual {
 
-    public static boolean execute(int[] array_a, int[] array_b) {
+    static boolean execute(int[] array_a, int[] array_b) {
         return solutionV1(array_a,array_b);
     }
 

@@ -5,7 +5,7 @@ import java.util.TimeZone;
 
 class WhatDayIsIt {
 
-    public static String execute(String birthday_date) {
+    static String execute(String birthday_date) {
         return solutionV1(birthday_date);
     }
 
