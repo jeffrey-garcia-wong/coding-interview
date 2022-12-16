@@ -68,7 +68,7 @@ package io.jeffrey.facebook.recursion;
  */
 class EncryptedWords {
 
-    public static String execute(String input) {
+    static String execute(String input) {
         return solutionV1(input);
     }
 

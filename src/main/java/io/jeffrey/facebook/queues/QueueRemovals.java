@@ -84,7 +84,7 @@ import java.util.Queue;
  */
 class QueueRemovals {
 
-    public static int[] execute(int[] arr, int x) {
+    static int[] execute(int[] arr, int x) {
         return solutionV1(arr, x);
     }
 

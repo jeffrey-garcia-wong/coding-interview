@@ -1,4 +1,4 @@
-package io.jeffrey.interviewcake;
+package io.jeffrey.interviewcake.string;
 
 /**
  * <h1>Binary Gap</h1>

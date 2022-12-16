@@ -22,9 +22,9 @@ package io.jeffrey.core.maths;
  * The Fibonacci sequence to 6 is [0,1,1,2,3,5,8]. With zero-based indexing, fibonacci(5)=5 <p/>
  *
  */
-class Fibonacci {
+public class Fibonacci {
 
-    static int execute(int n) {
+    public static int execute(int n) {
         return solutionV2(n);
     }
 

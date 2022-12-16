@@ -60,7 +60,7 @@ import java.util.List;
  */
 class MaximumSubArray {
 
-    public static List<Integer> execute(List<Integer> arr) {
+    static List<Integer> execute(List<Integer> arr) {
         return solutionV1(arr);
     }
 

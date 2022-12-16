@@ -1,4 +1,4 @@
-package io.jeffrey.interviewbit;
+package io.jeffrey.interviewbit.string;
 
 /**
  * <h1>Palindrome String</h1><p/>

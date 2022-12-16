@@ -5,7 +5,7 @@ import java.util.List;
 
 class SparseArrays {
 
-    public static List<Integer> execute(List<String> stringList, List<String> queries) {
+    static List<Integer> execute(List<String> stringList, List<String> queries) {
         return solutionV1(stringList, queries);
     }
 

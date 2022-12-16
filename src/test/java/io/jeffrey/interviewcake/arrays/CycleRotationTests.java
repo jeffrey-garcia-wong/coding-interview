@@ -1,10 +1,10 @@
-package io.jeffrey.interviewcake;
+package io.jeffrey.interviewcake.arrays;
 
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 
-import static io.jeffrey.interviewcake.CycleRotation.execute;
+import static io.jeffrey.interviewcake.arrays.CycleRotation.execute;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class CycleRotationTests {

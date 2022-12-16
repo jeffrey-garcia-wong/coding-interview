@@ -16,9 +16,9 @@ import java.util.List;
  * Make sure the returned array is sorted.<p/>
  *
  */
-class Prime {
+public class Prime {
 
-    static List<Integer> execute(int n) {
+    public static List<Integer> execute(int n) {
         return solutionV1(n);
     }
 

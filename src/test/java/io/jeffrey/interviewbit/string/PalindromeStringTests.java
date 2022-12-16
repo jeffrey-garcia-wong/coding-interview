@@ -1,5 +1,6 @@
-package io.jeffrey.interviewbit;
+package io.jeffrey.interviewbit.string;
 
+import io.jeffrey.interviewbit.string.PalindromeString;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

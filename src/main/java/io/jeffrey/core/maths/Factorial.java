@@ -1,8 +1,8 @@
 package io.jeffrey.core.maths;
 
-class Factorial {
+public class Factorial {
 
-    static int execute(int n) {
+    public static int execute(int n) {
         return solutionV1(n);
     }
 
