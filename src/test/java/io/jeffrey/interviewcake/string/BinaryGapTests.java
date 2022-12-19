@@ -2,7 +2,7 @@ package io.jeffrey.interviewcake.string;
 
 import org.junit.jupiter.api.Test;
 
-import static io.jeffrey.interviewcake.BinaryGap.execute;
+import static io.jeffrey.interviewcake.string.BinaryGap.execute;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class BinaryGapTests {
