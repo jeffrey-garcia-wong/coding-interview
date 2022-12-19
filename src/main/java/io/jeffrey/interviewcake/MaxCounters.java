@@ -2,6 +2,77 @@ package io.jeffrey.interviewcake;
 
 import java.util.Arrays;
 
+/**
+ * <h1>Max Counters</h1>
+ *
+ * You are given N counters, initially set to 0, and you have two
+ * possible operations on them:
+ * <ul>
+ *     <li>increase(X) − counter X is increased by 1,</li>
+ *     <li>max counter − all counters are set to the maximum value of any counter.</li>
+ * </ul>
+ *
+ * A non-empty array A of M integers is given. This array represents
+ * consecutive operations:
+ * <ul>
+ *     <li>if A[K] = X, such that 1 ≤ X ≤ N, then operation K is increase(X),</li>
+ *     <li>if A[K] = N + 1 then operation K is max counter.</li>
+ * </ul>
+ *
+ * For example, given integer N = 5 and array A such that:
+ * <pre>
+ * {@code
+ *     A[0] = 3
+ *     A[1] = 4
+ *     A[2] = 4
+ *     A[3] = 6
+ *     A[4] = 1
+ *     A[5] = 4
+ *     A[6] = 4
+ * }
+ * </pre>
+ * the values of the counters after each consecutive operation will be:
+ * <pre>
+ * {@code
+ *     (0, 0, 1, 0, 0)
+ *     (0, 0, 1, 1, 0)
+ *     (0, 0, 1, 2, 0)
+ *     (2, 2, 2, 2, 2)
+ *     (3, 2, 2, 2, 2)
+ *     (3, 2, 2, 3, 2)
+ *     (3, 2, 2, 4, 2)
+ * }
+ * </pre>
+ * The goal is to calculate the value of every counter after all operations.<p/>
+ *
+ * Write a function:
+ * <pre>
+ * {@code
+ * class Solution { public int[] solution(int N, int[] A); }
+ * }
+ * </pre>
+ * that, given an integer N and a non-empty array A consisting of M integers,
+ * returns a sequence of integers representing the values of the counters.<p/>
+ *
+ * Result array should be returned as an array of integers. <br/>
+ * For example, given:
+ * <pre>
+ *     A[0] = 3
+ *     A[1] = 4
+ *     A[2] = 4
+ *     A[3] = 6
+ *     A[4] = 1
+ *     A[5] = 4
+ *     A[6] = 4
+ * </pre>
+ * the function should return [3, 2, 2, 4, 2], as explained above.<p/>
+ *
+ * Write an efficient algorithm for the following assumptions:
+ * <ul>
+ *     <li>N and M are integers within the range [1..100,000];</li>
+ *     <li>each element of array A is an integer within the range [1..N + 1].</li>
+ * </ul>
+ */
 public class MaxCounters {
 
     public static int[] execute(int N, int[] A) {
