@@ -54,7 +54,26 @@ package io.jeffrey.leetcode.bits;
 public class BinaryGap {
 
     static int execute(int n) {
-        return solutionV1(n);
+        return solutionV2(n);
+    }
+
+    private static int solutionV2(int n) {
+        // Optimized of v1 with only one loop
+        int max = 0;
+        int prev = -1, curr = 0;
+
+        for (int i=0; i<32; i++) {
+            int mask = 1 << i;
+            curr = i;
+            if ((n & mask) != 0) {
+                if (prev != -1) {
+                    max = Math.max(max, curr - prev);
+                }
+                prev = curr;
+            }
+        }
+
+        return max;
     }
 
     private static int solutionV1(int n) {
