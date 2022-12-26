@@ -220,35 +220,42 @@ public class MinAvgTwoSlice {
         // Design the algorithm here
 
         // write the code here
-        int globalMinAvgStartIdx = 0;
+        int localMin = A[0];
+        double localMinAvg = 0;
         int localMinAvgStartIdx = 0;
         double globalMinAvg = 0;
-        int localMin = A[0];
+        int globalMinAvgStartIdx = 0;
 
-        // start at index-1 since element at index-0 alone
-        // doesn't make a pair
+        // start at index 1 since element at index 0 alone
+        // doesn't constitute to a valid sub-array according
+        // to requirement
         for (int i=1; i<A.length; i++) {
             int currMin = A[i] + A[i-1];
             double currMinAvg = (double) currMin / 2;
-            double localMinAvg = (double) (localMin + A[i]) / (i - localMinAvgStartIdx + 1);
+            int newLocalMin = localMin + A[i];
+            double newLocalMinAvg = (double) (newLocalMin) / (i - localMinAvgStartIdx + 1);
 
-            if (currMinAvg < localMinAvg) {
-                // reset local min if current min is even smaller
+            if (currMinAvg < newLocalMinAvg) {
+                // reset local min if current min is smaller
                 localMin = currMin;
                 localMinAvg = currMinAvg;
                 localMinAvgStartIdx = i-1;
             } else {
-                // increment local min with current element
-                // if the local min avg still holds
-                localMin += A[i];
+                // if local min avg still remains to be minimal,
+                // increments the min with current element
+                localMin = newLocalMin;
+                localMinAvg = newLocalMinAvg;
             }
 
             // initialise global min avg to local min avg
             // only when first pair comes up
-            if (i==1) globalMinAvg = localMinAvg;
+            if (i==1) {
+                localMinAvg = newLocalMinAvg;
+                globalMinAvg = localMinAvg;
+            }
 
-            // reset global min avg and start index with the
-            // local min avg and start index if its smaller
+            // reset global min avg with the local min avg
+            // if its smaller
             if (localMinAvg < globalMinAvg) {
                 globalMinAvg = localMinAvg;
                 globalMinAvgStartIdx = localMinAvgStartIdx;
