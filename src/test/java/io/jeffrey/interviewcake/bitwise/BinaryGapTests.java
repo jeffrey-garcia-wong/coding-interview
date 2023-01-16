@@ -1,8 +1,8 @@
-package io.jeffrey.interviewcake.string;
+package io.jeffrey.interviewcake.bitwise;
 
 import org.junit.jupiter.api.Test;
 
-import static io.jeffrey.interviewcake.string.BinaryGap.execute;
+import static io.jeffrey.interviewcake.bitwise.BinaryGap.execute;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class BinaryGapTests {

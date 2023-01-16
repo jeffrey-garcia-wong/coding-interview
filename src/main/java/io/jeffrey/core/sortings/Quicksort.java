@@ -26,9 +26,12 @@ public class Quicksort {
 
     private static int partition(int[] input, int pivotVal, int start, int end) {
         while (start <= end) {
+            // shift the left pointer (towards right) until it finds an element NOT smaller than the pivot value
             while (input[start] < pivotVal) start++;
+            // shift the right pointer (towards left) until it finds an element NOT bigger than the pivot value
             while (input[end] > pivotVal) end--;
 
+            // swap the elements referenced by left and right pointers
             if (start <= end) {
                 int tmp = input[start];
                 input[start] = input[end];
