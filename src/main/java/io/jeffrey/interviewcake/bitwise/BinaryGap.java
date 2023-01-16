@@ -1,4 +1,4 @@
-package io.jeffrey.interviewcake.string;
+package io.jeffrey.interviewcake.bitwise;
 
 /**
  * <h1>Binary Gap</h1>
@@ -42,7 +42,26 @@ package io.jeffrey.interviewcake.string;
  */
 class BinaryGap {
     static int execute(int N) {
-        return solutionV1(N);
+        return solutionV2(N);
+    }
+
+    static int solutionV2(int N) {
+        // Optimized of v1 using bitwise operations
+        int max = 0;
+        int prev = -1;
+
+        for (int i=0; i<32; i++) {
+            if (Math.pow(2,i) > N) break;
+            int mask = 1 << i;
+            if ((N & mask) != 0) {
+                if (prev != -1) {
+                    max = Math.max(max, i - (prev + 1));
+                }
+                prev = i;
+            }
+        }
+
+        return max;
     }
 
     static int solutionV1(int N) {

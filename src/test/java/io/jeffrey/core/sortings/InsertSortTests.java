@@ -8,10 +8,10 @@ import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-import static io.jeffrey.core.sortings.Mergesort.execute;
+import static io.jeffrey.core.sortings.InsertionSort.execute;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class MergesortTests {
+public class InsertSortTests {
 
     private int[] generateRandom(int size) {
         Random random = new Random();
@@ -24,16 +24,16 @@ public class MergesortTests {
     }
 
     @Test
-    public void test1() {
-        int [] input = new int[] {};
-        int [] expected = Arrays.copyOf(input, input.length);
-        execute(input);
+    public void test_000() {
+        int[] input = new int[] {3,2,1};
+        int[] expected = Arrays.copyOf(input, input.length);
         Arrays.sort(expected);
         assertEquals(
                 Arrays.toString(expected),
-                Arrays.toString(input)
+                Arrays.toString(execute(input))
         );
     }
+
 
     @Test
     public void test2() {
@@ -59,7 +59,6 @@ public class MergesortTests {
         );
     }
 
-
     @Test
     public void test4() throws InterruptedException {
         final int TASK_COUNT = 100;
@@ -75,7 +74,7 @@ public class MergesortTests {
                 int [] expected = Arrays.copyOf(input, input.length);
 
                 long startTime = System.nanoTime();
-                execute(input);
+                BubbleSort.execute(input);
                 long timeInMs = (System.nanoTime() - startTime);;
                 System.out.println("DONE: " + timeInMs + "ns " + Thread.currentThread().getName());
 

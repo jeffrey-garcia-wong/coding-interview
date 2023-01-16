@@ -8,10 +8,10 @@ import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-import static io.jeffrey.core.sortings.Mergesort.execute;
+import static io.jeffrey.core.sortings.BubbleSort.execute;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class MergesortTests {
+public class BubbleSortTests {
 
     private int[] generateRandom(int size) {
         Random random = new Random();
@@ -58,7 +58,6 @@ public class MergesortTests {
                 Arrays.toString(input)
         );
     }
-
 
     @Test
     public void test4() throws InterruptedException {
