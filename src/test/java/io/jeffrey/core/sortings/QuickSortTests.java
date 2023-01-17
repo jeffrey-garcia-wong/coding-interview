@@ -1,22 +1,21 @@
 package io.jeffrey.core.sortings;
 
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.Timeout;
+import org.junit.jupiter.api.parallel.Execution;
+import org.junit.jupiter.api.parallel.ExecutionMode;
 
-import java.util.Arrays;
-import java.util.Random;
-import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
+import java.util.*;
+import java.util.concurrent.*;
 
 import static io.jeffrey.core.sortings.Quicksort.execute;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class QuicksortTests {
+public class QuickSortTests {
 
-    private int[] generateRandom(int size) {
+    private int[] generateRandom() {
         Random random = new Random();
-
-        int [] randomInt = new int[size];
+        int [] randomInt = new int[random.nextInt(50 + 1)];
         for (int i=0; i<randomInt.length; i++) {
             randomInt[i] = random.nextInt(20 + 1);
         }
@@ -60,23 +59,24 @@ public class QuicksortTests {
     }
 
     @Test
-    public void test4() throws InterruptedException {
+    @Execution(ExecutionMode.CONCURRENT)
+    @Timeout(value = 100, unit = TimeUnit.MILLISECONDS)
+    public void test4() throws Exception {
         final int TASK_COUNT = 100;
         final int THREAD_POOL_SIZE = 20;
-        final CountDownLatch latch = new CountDownLatch(TASK_COUNT);
 
-        ExecutorService executorService = Executors.newFixedThreadPool(THREAD_POOL_SIZE);
+        final ExecutorService executorService = Executors.newFixedThreadPool(THREAD_POOL_SIZE);
+        final List<Callable<Void>> callables = new LinkedList<>();
 
         for (int j=0; j<TASK_COUNT; j++) {
-            executorService.execute(() -> {
-                int SIZE = 50;
-                int [] input = generateRandom(SIZE);
+            callables.add(() -> {
+                int [] input = generateRandom();
                 int [] expected = Arrays.copyOf(input, input.length);
 
                 long startTime = System.nanoTime();
                 execute(input);
                 long timeInMs = (System.nanoTime() - startTime);;
-                System.out.println("DONE: " + timeInMs + "ns " + Thread.currentThread().getName());
+//                System.out.println("DONE: " + timeInMs + "ns " + Thread.currentThread().getName());
 
                 Arrays.sort(expected);
                 assertEquals(
@@ -84,11 +84,20 @@ public class QuicksortTests {
                         Arrays.toString(input)
                 );
 
-                latch.countDown();
+                return null;
             });
         }
 
-        latch.await();
+        Collection<Future<Void>> futures = executorService.invokeAll(callables);
+        for (Future<Void> future : futures) {
+            future.get();
+        }
+
+        executorService.shutdown();
+        while (!executorService.isTerminated()) {
+            Thread.sleep(1);
+        }
+        executorService.shutdownNow();
     }
 
 }
