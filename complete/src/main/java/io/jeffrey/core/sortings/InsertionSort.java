@@ -8,10 +8,22 @@ public class InsertionSort {
 
     private static int[] solutionV1(int[] input) {
         /*
-         * Design the algorithm here
-         * 1) iterate through all the elements in the outer loop,
+         * Design the algorithm here:
+         *
+         * [Strategy]
+         * For each element in the input array, compare it
+         * with the elements before it, keep swapping it
+         * with bigger elements until it is pushed towards
+         * its leftmost position where the element before
+         * it is less than or equal to it.
+         * Keep doing this until the iteration is over and
+         * all the elements in the array should be sorted in
+         * ascending order.
+         *
+         * [Implementation]
+         * 1) iterate through all the elements in an outer loop,
          *    and for each element at position i
-         * 2) iterate through all the elements before position i to 0
+         * 2) iterate through all the elements from position i to 0
          *    in the inner loop
          * 3) compare each element at j with element at j+1
          * 4) if the element at j+1 is smaller, swap it with the element at j
@@ -22,17 +34,18 @@ public class InsertionSort {
          */
 
         // Write the code here
-        for (int i=0; i<input.length; i++) {
+        int[] output = input;
+        for (int i=0; i<output.length; i++) {
             for (int j=i-1; j>=0; j--) {
-                if (input[j] > input[j+1]) {
-                    int backupVal = input[j+1];
-                    input[j+1] = input[j];
-                    input[j] = backupVal;
+                if (output[j] > output[j+1]) {
+                    int backupVal = output[j+1];
+                    output[j+1] = output[j];
+                    output[j] = backupVal;
                 } else
                     break;
             }
         }
-        return input;
+        return output;
     }
 
 }
