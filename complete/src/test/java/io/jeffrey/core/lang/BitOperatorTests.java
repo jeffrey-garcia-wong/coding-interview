@@ -1,5 +1,6 @@
 package io.jeffrey.core.lang;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -9,7 +10,7 @@ public class BitOperatorTests {
     @Test
     public void setBit_001() {
         // 10(2) set bit 0 = 11(3)
-        assertEquals(3, BitOperator.setBit(2, 0));
+        Assertions.assertEquals(3, BitOperator.setBit(2, 0));
     }
 
     @Test

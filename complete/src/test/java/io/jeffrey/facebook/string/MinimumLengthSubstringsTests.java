@@ -1,5 +1,6 @@
 package io.jeffrey.facebook.string;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -10,7 +11,7 @@ class MinimumLengthSubstringsTests {
     public void test_001() {
         String s = "dcbefebce";
         String t = "fd";
-        assertEquals(5, MinimumLengthSubstrings.execute(s, t));
+        Assertions.assertEquals(5, MinimumLengthSubstrings.execute(s, t));
     }
 
     @Test

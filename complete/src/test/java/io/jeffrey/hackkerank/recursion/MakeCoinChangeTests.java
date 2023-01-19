@@ -1,5 +1,6 @@
 package io.jeffrey.hackkerank.recursion;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -10,7 +11,7 @@ public class MakeCoinChangeTests {
     public void test_001() {
         int amount = 5;
         int[] coinDenoms = {5};
-        assertEquals(1, MakeCoinChange.execute(amount, coinDenoms));
+        Assertions.assertEquals(1, MakeCoinChange.execute(amount, coinDenoms));
     }
 
     @Test

@@ -1,5 +1,6 @@
 package io.jeffrey.facebook.heap;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -10,7 +11,7 @@ public class MagicalCandyBagsTests {
     public void test_001() {
         int[] arr = {1};
         int k = 10;
-        assertEquals(1, MagicalCandyBags.execute(arr, k));
+        Assertions.assertEquals(1, MagicalCandyBags.execute(arr, k));
     }
 
     @Test

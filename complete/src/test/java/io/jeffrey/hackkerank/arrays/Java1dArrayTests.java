@@ -1,5 +1,6 @@
 package io.jeffrey.hackkerank.arrays;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
@@ -9,7 +10,7 @@ public class Java1dArrayTests {
 
     @Test
     public void test_001() {
-        assertTrue(Java1dArray.execute(3, new int []{0,0,0,0,0}));
+        Assertions.assertTrue(Java1dArray.execute(3, new int []{0,0,0,0,0}));
     }
 
     @Test

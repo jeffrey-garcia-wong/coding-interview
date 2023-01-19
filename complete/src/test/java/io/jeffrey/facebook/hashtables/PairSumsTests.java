@@ -1,5 +1,6 @@
 package io.jeffrey.facebook.hashtables;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -8,7 +9,7 @@ public class PairSumsTests {
 
     @Test
     public void test_001() {
-        assertEquals(2, PairSums.execute(new int[] {1,2,3,4,3}, 6));
+        Assertions.assertEquals(2, PairSums.execute(new int[] {1,2,3,4,3}, 6));
     }
 
     @Test

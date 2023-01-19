@@ -1,5 +1,6 @@
 package io.jeffrey.facebook.string;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -10,7 +11,7 @@ public class MatchingPairsTests {
     public void test_001() {
         String s = "abcd";
         String t = "adcb";
-        assertEquals(4, MatchingPairs.execute(s, t));
+        Assertions.assertEquals(4, MatchingPairs.execute(s, t));
     }
 
     @Test

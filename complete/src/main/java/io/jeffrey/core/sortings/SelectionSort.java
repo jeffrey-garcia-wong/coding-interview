@@ -33,21 +33,22 @@ public class SelectionSort {
          */
 
         // write the code here
-        for (int i=0; i<input.length; i++) {
+        int[] output = input;
+        for (int i=0; i<output.length; i++) {
             int minPos = i;
-            int minVal = input[minPos];
-            for (int j=i+1; j<input.length; j++) {
-                if (input[j] < minVal) {
+            int minVal = output[minPos];
+            for (int j=i+1; j<output.length; j++) {
+                if (output[j] < minVal) {
                     minPos = j;
-                    minVal = input[minPos];
+                    minVal = output[minPos];
                 }
             }
             // swap
-            int backupVal = input[i];
-            input[i] = input[minPos];
-            input[minPos] = backupVal;
+            int backupVal = output[i];
+            output[i] = minVal;
+            output[minPos] = backupVal;
         }
-        return input;
+        return output;
     }
 
 }

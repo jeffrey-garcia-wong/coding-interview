@@ -3,7 +3,6 @@ package io.jeffrey.leetcode.lists;
 import org.junit.jupiter.api.Test;
 
 import static io.jeffrey.leetcode.lists.ReverseLinkedList.ListNode;
-
 import static org.junit.jupiter.api.Assertions.fail;
 
 public class ReverseLinkedListTests {

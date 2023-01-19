@@ -1,5 +1,6 @@
 package io.jeffrey.facebook.stacks;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
@@ -9,7 +10,7 @@ public class BalanceBracketsTests {
 
     @Test
     public void test_001() {
-        assertTrue(BalanceBrackets.execute("{[()]}"));
+        Assertions.assertTrue(BalanceBrackets.execute("{[()]}"));
     }
 
     @Test

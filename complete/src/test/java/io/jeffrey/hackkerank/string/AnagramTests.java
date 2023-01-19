@@ -1,5 +1,6 @@
 package io.jeffrey.hackkerank.string;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -8,7 +9,7 @@ public class AnagramTests {
 
     @Test
     public void test_001() {
-        assertEquals(3, Anagram.execute("aaabbb"));
+        Assertions.assertEquals(3, Anagram.execute("aaabbb"));
     }
 
     @Test

@@ -1,9 +1,9 @@
 package io.jeffrey.leetcode.lists;
 
+import org.junit.jupiter.api.Test;
+
 import static io.jeffrey.leetcode.lists.MergeTwoSortedLists.ListNode;
 import static org.junit.jupiter.api.Assertions.fail;
-
-import org.junit.jupiter.api.Test;
 
 public class MergeTwoSortedListsTests {
 

@@ -1,14 +1,15 @@
 package io.jeffrey.facebook.recursion;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class ChangeForeignCurrencyTests {
 
     @Test
     public void test_001() {
-        assertFalse(ChangeForeignCurrency.execute(94, new int [] {5, 10, 25, 100, 200}));
+        Assertions.assertFalse(ChangeForeignCurrency.execute(94, new int [] {5, 10, 25, 100, 200}));
     }
 
     @Test

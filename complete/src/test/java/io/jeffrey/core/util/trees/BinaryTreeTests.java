@@ -2,7 +2,9 @@ package io.jeffrey.core.util.trees;
 
 import org.junit.jupiter.api.Test;
 
-import java.util.*;
+import java.util.Arrays;
+import java.util.Deque;
+import java.util.List;
 
 import static io.jeffrey.core.util.trees.BinaryTree.TreeNode;
 import static org.junit.jupiter.api.Assertions.assertEquals;

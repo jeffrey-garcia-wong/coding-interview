@@ -1,5 +1,6 @@
 package io.jeffrey.facebook.recursion;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -9,7 +10,7 @@ public class EncryptedWordsTests {
     @Test
     public void test_001() {
         String input = "abc";
-        assertEquals("bac", EncryptedWords.execute(input));
+        Assertions.assertEquals("bac", EncryptedWords.execute(input));
     }
 
     @Test

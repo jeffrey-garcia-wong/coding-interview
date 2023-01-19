@@ -1,9 +1,9 @@
 package io.jeffrey.facebook.arrays;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class ReverseMakesEqualTests {
 
@@ -11,7 +11,7 @@ public class ReverseMakesEqualTests {
     public void test_001() {
         int[] array_a_1 = {1, 2, 3, 4};
         int[] array_b_1 = {1, 4, 3, 2};
-        assertTrue(ReverseMakesEqual.execute(array_a_1, array_b_1));
+        Assertions.assertTrue(ReverseMakesEqual.execute(array_a_1, array_b_1));
     }
 
     @Test
