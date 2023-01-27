@@ -34,9 +34,12 @@ public class BinarySearchTests {
 
     @Test
     public void search_small_input() {
-        int[] input = {3, 2, 1};
+        int[] input = {2, 1};
         Arrays.sort(input);
-        assertEquals(1, execute(input, 2));
+        assertEquals(
+                Arrays.binarySearch(input, 3),
+                execute(input, 3)
+        );
     }
 
     @Test
