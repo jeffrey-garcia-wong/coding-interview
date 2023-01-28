@@ -33,6 +33,16 @@ public class BinarySearchTests {
     }
 
     @Test
+    public void empty_input() {
+        int[] input = {};
+        Arrays.sort(input);
+        assertEquals(
+                Arrays.binarySearch(input, 5),
+                execute(input, 5)
+        );
+    }
+
+    @Test
     public void search_small_input() {
         int[] input = {2, 1};
         Arrays.sort(input);
@@ -55,7 +65,9 @@ public class BinarySearchTests {
     public void search_medium_input() {
         int[] input = {10, 4, -7, 99, 2, 34, 28, 0, 55};
         Arrays.sort(input);
-        assertEquals(6, execute(input, 34));
+        assertEquals(
+                Arrays.binarySearch(input, 34),
+                execute(input, 34));
     }
 
     @RepeatedTest(100)
