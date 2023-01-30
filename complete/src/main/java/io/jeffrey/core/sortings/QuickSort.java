@@ -1,11 +1,12 @@
 package io.jeffrey.core.sortings;
 
 import java.util.concurrent.Callable;
+import java.util.function.Function;
 
 public class QuickSort {
 
     public static void execute(int [] input) {
-        solutionV2(input, 0, input.length-1);
+        solutionV1(input, 0, input.length-1);
     }
 
     private static void solutionV2(int[] input, int start, int end) {
@@ -54,30 +55,49 @@ public class QuickSort {
         // only 1 element and we have nothing to sort
         if (start >= end) return;
 
-        Callable<Integer> partition = (() -> {
-            int left = start;
-            int right = end;
+        Function<Integer[], Void> swap = ((pair) -> {
+            int backup = input[pair[0]];
+            input[pair[0]] = input[pair[1]];
+            input[pair[1]] = backup;
+            return null;
+        });
 
+        Callable<Integer> partition = (() -> {
             // pick the mid as pivot
-            int pivotVal = input[((right - left) >> 1) + left];
+            int middle = ((end - start) >> 1) + start;
+            int pivotVal = input[middle];
+
+            // move the pivot to the last so stay out of the way during partition
+            swap.apply(new Integer[]{middle, end});
+
+            int left = start;
+            int right = end - 1;
 
             while (left <= right) {
                 // shift the left pointer (towards right) until it finds an element NOT smaller than the pivot value
-                while (input[left] < pivotVal) left++;
+                while (left <= right && input[left] < pivotVal) left++;
                 // shift the right pointer (towards left) until it finds an element NOT bigger than the pivot value
-                while (input[right] > pivotVal) right--;
+                while (right >= left && input[right] > pivotVal) right--;
 
                 // swap the elements referenced by left and right pointers
                 if (left <= right) {
-                    int tmp = input[left];
-                    input[left] = input[right];
-                    input[right] = tmp;
+                    swap.apply(new Integer[]{left, right});
                     left ++;
                     right --;
                 }
             }
 
-            // TODO: why return left instead of right?
+            /* when the external while loop finish, left must be at the position where
+             * there high range section start (the beginning position where elements
+             * found larger than pivot)
+             * move the pivot back to the position where the high range section start
+             */
+            swap.apply(new Integer[]{left, end});
+
+            /* we want to return the position of the pivot, such that
+             * the input array is split into 2 sub-arrays which can
+             * carry out further sorting
+             */
             return left;
         });
 
@@ -89,7 +109,7 @@ public class QuickSort {
 
             // split the input array into 2 sub-arrays and continue sorting
             solutionV1(input, start, splitIndex-1);
-            solutionV1(input, splitIndex, end);
+            solutionV1(input, splitIndex+1, end);
 
         } catch (Exception e) {
             throw new RuntimeException(e);
