@@ -1,59 +1,73 @@
 package io.jeffrey.core.sortings;
 
+import java.util.concurrent.Callable;
+
 public class MergeSort {
 
-    public static void execute(int[] input) {
-        solutionV1(input, 0, input.length-1, new int[input.length]);
+    public static int[] execute(int[] input) {
+        solutionV1(input, 0, input.length - 1, new int[input.length]);
+        return input;
     }
 
-    private static void solutionV1(int[] input, int leftStart, int rightEnd, int[] result) {
+    private static void solutionV1(int[] input, int start, int end, int[] output) {
         // base case when the sub-array is reduced to 1 element
-        if (leftStart >= rightEnd) return;
+        if ((end - start) < 1) return;
 
-        // find the mid point to split the source array
-        int middlePos = ((rightEnd - leftStart) >> 1) + leftStart;
+        // find the mid-point to partition the source array
+        int splitIndex = start + (end - start)/2;
 
-        // sort the left sub-array
-        solutionV1(input, leftStart, middlePos, result);
-        // sort the right sub-array
-        solutionV1(input, middlePos+1, rightEnd, result);
+        Callable<Void> merge = (() -> {
+            int leftStart = start;
+            int leftEnd = splitIndex;
+            int rightStart = splitIndex + 1;
+            int rightEnd = end;
 
-        // merge the sub-array into the result array
-        merge(input, leftStart, rightEnd, result);
-    }
-
-    private static void merge(int[] input, final int leftStart, final int rightEnd, int[] result) {
-        // identify the end index of left sub-array
-        final int leftEnd = ((rightEnd - leftStart) >> 1) + leftStart;
-        // identify the right index of right sub-array
-        final int rightStart = leftEnd + 1;
-        // identify the size of both left and right sub-array
-        final int size = rightEnd - leftStart + 1;
-
-        // additional pointers
-        int left = leftStart; // for tracking the traversal of left sub-arrays
-        int right = rightStart; // for tracking the traversal of right sub-arrays
-        int index = leftStart; // for tracking the end position in the original array when traversal finished
-
-        // compare elements in left and right sub-arrays
-        while (left <= leftEnd && right <= rightEnd) {
-            if (input[left] <= input[right]) {
-                result[index] = input[left];
-                left++;
-            } else {
-                result[index] = input[right];
-                right++;
+            // compare elements in left and right sub-arrays and
+            // copy the sorted element into the temp output array
+            int current = leftStart;
+            while (leftStart <= leftEnd && rightStart <= rightEnd) {
+                if (input[leftStart] < input[rightStart]) {
+                    output[current] = input[leftStart];
+                    leftStart += 1;
+                } else {
+                    output[current] = input[rightStart];
+                    rightStart += 1;
+                }
+                current += 1;
             }
-            index++;
+
+            // copy remaining elements (if any) from left sub-array to temp output array
+            while (leftStart <= leftEnd) {
+                output[current] = input[leftStart];
+                leftStart += 1;
+                current += 1;
+            }
+
+            // copy remaining elements (if any) from right sub-array to temp output array
+            while (rightStart <= rightEnd) {
+                output[current] = input[rightStart];
+                rightStart += 1;
+                current += 1;
+            }
+
+            // copy merge & sorted elements from temp output array back to input array
+            for (int i=start; i<=end; i++) {
+                input[i] = output[i];
+            }
+
+            return null;
+        });
+
+        // further partition the left sub-array
+        solutionV1(input, start, splitIndex, output);
+        // further partition the right sub-array
+        solutionV1(input, splitIndex+1, end, output);
+        try {
+            // merge and sort the sub-arrays
+            merge.call();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
         }
-
-        // copy remaining elements (if any) from left sub-array to result array
-        System.arraycopy(input, left, result, index, leftEnd - (left - 1));
-
-        // copy remaining elements (if any) from right sub-array to result array
-        System.arraycopy(input, right, result, index, rightEnd - (right - 1));
-
-        // copy merged elements back to original array
-        System.arraycopy(result, leftStart, input, leftStart, size);
     }
+
 }
