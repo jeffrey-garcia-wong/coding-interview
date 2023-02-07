@@ -87,6 +87,21 @@ public class RunLengthCoding {
                 if (count.toString().equals("")) {
                     output.append(c);
                 } else {
+                    /* NOTE
+                     * Presume the max. size of the input string
+                     * is only 1MB (1024 * 1024 * 8 bits), and each
+                     * character is at most 16-bit, the number of
+                     * characters (size of the character array)
+                     * should be at most 1024 * 512 which is less
+                     * than half a million.
+                     *
+                     * In the event of a 1MB string with all characters
+                     * the same, the counter of the integer is bounded
+                     * by the maximum size of the input character array
+                     * (half a million) and there the cast below to
+                     * a primitive integer type should not incur any
+                     * overflow.
+                     */
                     int countInt = Integer.parseInt(count.toString());
                     for (int j = 0; j < countInt; j++) {
                         output.append(c);
