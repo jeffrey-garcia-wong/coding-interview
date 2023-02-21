@@ -1,10 +1,10 @@
-package io.jeffrey.facebook.heap;
+package io.jeffrey.facebook.heaps;
 
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 
-import static io.jeffrey.facebook.heap.LargestTripleProducts.execute;
+import static io.jeffrey.facebook.heaps.LargestTripleProducts.execute;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class LargestTripleProductsTests {
