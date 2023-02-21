@@ -16,14 +16,14 @@ import java.util.Queue;
  * they have to be left nodes. The leftmost node at a level could be
  * a right node.<p/>
  *
- * <b>Signature</b>
+ * <b>Signature</b><br/>
  * <pre>
  * {@code
  * int visibleNodes(Node root) { }
  * }
  * </pre>
  *
- * <b>Input</b>
+ * <b>Input</b><br/>
  * <pre>
  * {@code
  * The root node of a tree, where the number of nodes is between 1 and
@@ -31,14 +31,14 @@ import java.util.Queue;
  * }
  * </pre>
  *
- * <b>Output</b>
+ * <b>Output</b><br/>
  * <pre>
  * {@code
  * An int representing the number of visible nodes.
  * }
  * </pre>
  *
- * <b>Example</b>
+ * <b>Example</b><br/>
  * <pre>
  * {@code
  *             8  <------ root
