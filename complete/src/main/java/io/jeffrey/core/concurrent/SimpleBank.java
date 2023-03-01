@@ -32,8 +32,8 @@ public class SimpleBank {
     }
 
     public Float withdraw(int accountNumber, float amount) {
+        lock.lock();
         try {
-            lock.lock();
             Float currentBalance = accountBalance.get(accountNumber);
             Objects.requireNonNull(currentBalance);
             Float newBalance = currentBalance - Float.valueOf(amount);
@@ -45,8 +45,8 @@ public class SimpleBank {
     }
 
     public Float deposit(int accountNumber, float amount) {
+        lock.lock();
         try {
-            lock.lock();
             Float currentBalance = accountBalance.get(accountNumber);
             Objects.requireNonNull(currentBalance);
             Float newBalance = currentBalance + Float.valueOf(amount);
